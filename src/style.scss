@@ -1,0 +1,351 @@
+$primaryColor: #4527a4;
+// SCSS Variables
+$primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$secondary-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+$tertiary-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+$background-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+$color-primary: #667eea;
+$color-secondary: #ff6b6b;
+$color-text-dark: #1a202c;
+$color-text-medium: #2d3748;
+$color-text-light: #4a5568;
+$color-text-muted: #718096;
+
+$border-radius-small: 12px;
+$border-radius-medium: 16px;
+$border-radius-large: 20px;
+$border-radius-circle: 50%;
+
+$spacing-xs: 12px;
+$spacing-sm: 16px;
+$spacing-md: 24px;
+$spacing-lg: 32px;
+$spacing-xl: 40px;
+
+$shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.08);
+$shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.1);
+$shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  sans-serif;
+$transition-base: all 0.3s ease;
+$transition-smooth: all 0.4s ease;
+
+// Mixins
+@mixin card-base {
+  background: #fff;
+  box-shadow: $shadow-light;
+  transition: $transition-base;
+  overflow: hidden;
+}
+
+@mixin hover-lift($translateY: -8px) {
+  &:hover {
+    transform: translateY($translateY);
+    box-shadow: $shadow-hover;
+  }
+}
+
+@mixin icon-base {
+  width: 40px;
+  height: 40px;
+}
+
+@mixin title-base {
+  font-weight: 600;
+  color: $color-text-dark;
+  margin-bottom: $spacing-sm;
+}
+
+@mixin description-base {
+  color: $color-text-light;
+  line-height: 1.6;
+}
+
+// Reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  line-height: 1.6;
+  color: #333;
+  background: $background-gradient;
+  min-height: 100vh;
+}
+
+.wp-block-rascl-service-card-layout {
+  box-sizing: border-box;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .icon {
+    font-style: inherit;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .app-container {
+    min-height: 100vh;
+    padding: $spacing-xl 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .cards-section {
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  // Common inner classes used across all themes
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon {
+    @include icon-base;
+  }
+
+  .content-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-title {
+    @include title-base;
+  }
+
+  .card-description {
+    @include description-base;
+    font-size: 1rem;
+  }
+
+  // theme 1 - Vertical Stack (Traditional)
+  .theme1 {
+    .card {
+      @include card-base;
+      @include hover-lift;
+      border-radius: $border-radius-medium;
+      padding: $spacing-lg $spacing-md;
+      text-align: center;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: $primary-gradient;
+      }
+
+      .icon-wrapper {
+        width: 80px;
+        height: 80px;
+        background: $primary-gradient;
+        border-radius: $border-radius-circle;
+        margin: 0 auto $spacing-md auto;
+      }
+
+      .icon {
+        color: white;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  // theme 2 - Horizontal Split
+  .theme2 {
+    .card {
+      @include card-base;
+      border-radius: $border-radius-large;
+      padding: 0;
+      box-shadow: $shadow-heavy;
+      transition: $transition-smooth;
+      display: flex;
+      min-height: 200px;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .icon-wrapper {
+        background: $secondary-gradient;
+        width: 120px;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: -20px;
+          width: 40px;
+          height: 100%;
+          background: $secondary-gradient;
+          transform: skewX(-15deg);
+        }
+      }
+
+      .icon {
+        color: white;
+        width: 48px;
+        height: 48px;
+        z-index: 2;
+        position: relative;
+      }
+
+      .content-section {
+        flex: 1;
+        padding: $spacing-lg $spacing-lg $spacing-lg $spacing-xl;
+        justify-content: center;
+      }
+
+      .card-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: $spacing-xs;
+      }
+
+      .card-description {
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  // theme 3 - Corner Icon with Diagonal Design
+  .theme3 {
+    .card {
+      @include card-base;
+      border-radius: $border-radius-small;
+      padding: 0;
+      box-shadow: $shadow-medium;
+      position: relative;
+      min-height: 280px;
+
+      &:hover {
+        transform: translateY(-5px) rotate(1deg);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .diagonal-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: $tertiary-gradient;
+        transform: rotate(45deg) translate(35px, -35px);
+      }
+
+      .icon-wrapper {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: $border-radius-circle;
+        z-index: 2;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .icon {
+        color: $color-primary;
+        width: 32px;
+        height: 32px;
+      }
+
+      .content-section {
+        padding: $spacing-lg $spacing-md $spacing-md $spacing-md;
+        height: 100%;
+        justify-content: flex-end;
+      }
+
+      .card-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-right: 80px;
+      }
+
+      .card-description {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      .accent-line {
+        width: 60px;
+        height: 4px;
+        background: $primary-gradient;
+        border-radius: 2px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  // Responsive Design
+  @media (max-width: 768px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: $spacing-md;
+    }
+
+    .app-container {
+      padding: 20px 16px;
+      gap: $spacing-xl;
+    }
+
+    .theme2 {
+      .card {
+        flex-direction: column;
+        min-height: auto;
+
+        .icon-wrapper {
+          width: 100%;
+          height: 100px;
+
+          &::after {
+            display: none;
+          }
+        }
+
+        .content-section {
+          padding: $spacing-md;
+        }
+      }
+    }
+
+    .theme3 {
+      .card {
+        .card-title {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

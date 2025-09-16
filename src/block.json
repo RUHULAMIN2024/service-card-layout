@@ -1,0 +1,53 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rascl/service-card-layout",
+  "version": "1.0.0",
+  "title": "Service Card Layout",
+  "category": "widgets",
+  "description": "Short description of the Service Card Layout",
+  "keywords": ["Service Card Layout"],
+  "textdomain": "service-card-layout",
+  "attributes": {
+    "theme": {
+      "type": "string",
+      "default": "theme1"
+    },
+
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "icon": "",
+          "title": "Service Card Layout Designs",
+          "description": "Three completely different layout approaches for service cards, each with unique structure and visual hierarchy"
+        },
+        {
+          "icon": "",
+          "title": "Service Card Layout Designs",
+          "description": "Three completely different layout approaches for service cards, each with unique structure and visual hierarchy"
+        },
+        {
+          "title": "Service Card Layout Designs",
+          "description": "Three completely different layout approaches for service cards, each with unique structure and visual hierarchy"
+        }
+      ]
+    },
+    "styles": {
+      "type": "object",
+      "default": {}
+    }
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "html": false
+  },
+  "example": {
+    "attributes": {}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
