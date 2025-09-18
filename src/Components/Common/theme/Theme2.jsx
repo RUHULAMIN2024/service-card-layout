@@ -1,4 +1,3 @@
-import { Code, Palette, Zap } from 'lucide-react';
 
 function Theme2({ services }) {
   return (
@@ -7,7 +6,8 @@ function Theme2({ services }) {
         {services?.map((service, i) => (
           <div key={i} className="card">
             <div className="icon-wrapper">
-              <Zap className="icon" />
+            <div className="only-theme2"></div>
+              <span dangerouslySetInnerHTML={{__html:service?.icon}} className="icon" />
             </div>
             <div className="content-section">
               <h3 className="card-title">{service?.title}</h3>

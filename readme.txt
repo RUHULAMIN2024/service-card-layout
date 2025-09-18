@@ -1,13 +1,13 @@
-=== Plugin Name ===
-Contributors:		bplugins
-Donate link:		https://gum.co/wpdonate/
-Tags:				block, key1, key2, key3, key4
-Requires at least:	6.3+
-Tested up to:		6.5.5
-Stable tag:			1.0.0
-Requires PHP:		7.2
-License:			GPLv3 or later
-License URI:		http://www.gnu.org/licenses/gpl-3.0.html
+=== Service Card Layout ===
+Contributors: bplugins
+Donate link: https://gum.co/wpdonate/
+Tags: block, key1, key2, key3, key4
+Requires at least: 6.3
+Tested up to: 6.8
+Stable tag: 1.0.0
+Requires PHP: 7.2
+License: GPLv3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Short description of the plugin
 

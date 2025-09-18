@@ -1,12 +1,12 @@
 import { __ } from "@wordpress/i18n";
-import { PanelBody, SelectControl, TextControl, ToggleControl } from "@wordpress/components";
-import { updateData } from "../../../../../../bpl-tools/utils/functions";
+import { PanelBody, SelectControl} from "@wordpress/components";
 import { themeOptions } from "../../../../utils/options";
 import { themeSwitch } from "../../../../utils/functions";
-import { Label } from "../../../../../../bpl-tools/Components";
+import { ItemsPanel } from "../../../../../../bpl-tools/Components";
+import ServicesItemsPanel from "./ServicesItemsPanel";
 
 const General = ({ attributes, setAttributes }) => {
-  const { theme, services } = attributes;
+  const { theme, activeServiceIdx } = attributes;
 
   return (
     <>
@@ -31,7 +31,20 @@ const General = ({ attributes, setAttributes }) => {
         title={__("Services", "service-card-layout")}
         initialOpen={false}
       >
-       
+       <ItemsPanel
+        {...{ attributes, setAttributes,activeServiceIdx }}
+        arrKey="services"
+        activeIndex={activeServiceIdx}
+        newItem={{
+          "icon": "",
+          "title": "Service Card Layout Designs",
+          "description": "Three completely different layout approaches for service cards, each with unique structure and visual hierarchy"
+        }}
+        ItemSettings={ServicesItemsPanel}
+        design="sortable"
+        // title="name"
+      />
+
       </PanelBody>
     </>
   );

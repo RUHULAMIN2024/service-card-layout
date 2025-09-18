@@ -1,4 +1,3 @@
-import { Code, Palette, Zap } from 'lucide-react';
 
 function Theme3({ services }) {
   return (
@@ -9,7 +8,7 @@ function Theme3({ services }) {
             <div className="diagonal-bg"></div>
 
             <div className="icon-wrapper">
-              <Palette className="icon" />
+              <span dangerouslySetInnerHTML={{__html:service?.icon}} className="icon" />
             </div>
             <div className="content-section">
               <div className="accent-line"></div>
