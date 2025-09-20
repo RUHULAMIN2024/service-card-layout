@@ -13,9 +13,9 @@
       "type": "string",
       "default": "wide"
     },
-    "activeServiceIdx":{
-      "type":"number",
-      "default":0
+    "activeServiceIdx": {
+      "type": "number",
+      "default": 0
     },
     "theme": {
       "type": "string",
@@ -80,7 +80,7 @@
               "left": "32px"
             }
           },
-      
+
           "border": {
             "width": "0px",
             "style": "solid",
@@ -96,10 +96,71 @@
             "color": "#fff"
           }
         },
+        "container": {
+          "margin": {
+            "desktop": {
+              "top": "0px",
+              "right": "0px",
+              "bottom": "0px",
+              "left": "0px"
+            },
+            "tablet": {
+              "top": "0px",
+              "right": "0px",
+              "bottom": "0px",
+              "left": "0px"
+            },
+            "mobile": {
+              "top": "0px",
+              "right": "0px",
+              "bottom": "0px",
+              "left": "0px"
+            }
+          },
+          "padding": {
+            "desktop": {
+              "top": "0px",
+              "right": "0px",
+              "bottom": "0px",
+              "left": "0px"
+            },
+            "tablet": {
+              "top": "0px",
+              "right": "0px",
+              "bottom": "0px",
+              "left": "0px"
+            },
+            "mobile": {
+              "top": "0px",
+              "right": "0px",
+              "bottom": "0px",
+              "left": "0px"
+            }
+          },
+          "border": {
+            "width": "0px",
+            "style": "solid",
+            "color": "#333"
+          },
+          "radius": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+          },
+          "bg": {
+            "color": "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)"
+          }
+        },
         "content": {
           "icon": {
+            
             "color": "",
-            "size": "",
+            "size": {
+              "desktop": "",
+              "tablet": "",
+              "mobile": ""
+            },
             "bg": {}
           },
           "title": {

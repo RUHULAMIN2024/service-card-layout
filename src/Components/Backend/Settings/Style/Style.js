@@ -19,7 +19,7 @@ import { updateData } from "../../../../../../bpl-tools/utils/functions";
 
 const Style = ({ attributes, setAttributes, device }) => {
   const { styles } = attributes;
-  const { grid, card, content } = styles;
+  const { grid, card, content, container} = styles;
   const { columnItems, columnGap } = grid;
   const { icon, title, description } = content;
   return (
@@ -56,6 +56,94 @@ const Style = ({ attributes, setAttributes, device }) => {
           max={50}
         />
       </PanelBody>
+
+      <PanelBody
+        className="bPlPanelBody"
+        title={__("Container", "service-card-layout")}
+        initialOpen={false}
+      >
+        <Background
+          className="mt10"
+          value={container?.bg}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "container", "bg"),
+            })
+          }
+        />
+
+        {/* container margin  */}
+        <PanelRow>
+          <Label className="">Margin</Label> <Device />
+        </PanelRow>
+        <BoxControl
+          className="mt10"
+          values={container?.margin?.[device]}
+          resetValues={{
+            top: "0px",
+            right: "0px",
+            bottom: "0px",
+            left: "0px",
+          }}
+          onChange={(v) => {
+            setAttributes({
+              styles: updateData(styles, v, "container", "margin", device),
+            });
+          }}
+        />
+
+        {/* container padding  */}
+
+        <PanelRow>
+          <Label className="">Padding</Label> <Device />
+        </PanelRow>
+        <BoxControl
+          className="mt10"
+          values={container?.padding?.[device]}
+          resetValues={{
+            top: "0px",
+            right: "0px",
+            bottom: "0px",
+            left: "0px",
+          }}
+          onChange={(v) => {
+            setAttributes({
+              styles: updateData(styles, v, "container", "padding", device),
+            });
+          }}
+        />
+
+        <BorderControl
+          className="mt10"
+          label={__("Border", "audio-theme")}
+          value={container?.border}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "container", "border"),
+            })
+          }
+        />
+
+        {/* container border radius  */}
+        <BoxControl
+          className="mt10"
+          label="Border Radius"
+          values={container?.radius}
+          resetValues={{
+            top: "0px",
+            right: "0px",
+            bottom: "0px",
+            left: "0px",
+          }}
+          onChange={(v) => {
+            setAttributes({
+              styles: updateData(styles, v, "container", "radius"),
+            });
+          }}
+        />
+      </PanelBody>
+
+
 
       <PanelBody
         className="bPlPanelBody"
@@ -102,8 +190,6 @@ const Style = ({ attributes, setAttributes, device }) => {
           }}
         />
 
-
-
         <BorderControl
           className="mt10"
           label={__("Border", "service-card-layout")}
@@ -139,6 +225,7 @@ const Style = ({ attributes, setAttributes, device }) => {
         title={__("Icon", "service-card-layout")}
         initialOpen={false}
       >
+      
         <ColorControl
           className="mt10"
           label={__("Color", "service-card-layout")}
@@ -161,16 +248,17 @@ const Style = ({ attributes, setAttributes, device }) => {
             })
           }
         />
-
+        <PanelRow>
+          <Label className="">Size</Label> <Device />
+        </PanelRow>
         <RangeControl
           min={50}
           max={150}
           className="mt10"
-          label="Size"
-          value={icon?.size}
+          value={icon?.size[device]}
           onChange={(v) =>
             setAttributes({
-              styles: updateData(styles, v, "content", "icon", "size"),
+              styles: updateData(styles, v, "content", "icon", "size", device),
             })
           }
         />

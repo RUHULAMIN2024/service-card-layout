@@ -2,7 +2,7 @@ import { getBackgroundCSS, getBorderCSS, getBoxCSS, getColorsCSS, getMultiShadow
 
 const Style = ({ attributes, id, device }) => {
   const { styles, theme } = attributes;
-  const { grid, card, content } = styles;
+  const { grid, card, content,container } = styles;
   const { columnItems,columnGap  } = grid;
   const { icon, title, description } = content;
 
@@ -20,16 +20,16 @@ const Style = ({ attributes, id, device }) => {
 	
     iconSize = `
       ${iconSl} svg {
-	  	width:${icon?.size}px;
-		height:${icon?.size}px;
+	  	width:${icon?.size[device]}px;
+		height:${icon?.size[device]}px;
       }
       
     `;
   } else{
 	iconSize = `
       ${iconSl} {
-	  	width:${icon?.size}px;
-		height:${icon?.size}px;
+	  	width:${icon?.size[device]}px;
+		height:${icon?.size[device]}px;
 		${getBackgroundCSS(icon?.bg)};	
 
       }
@@ -56,6 +56,12 @@ const Style = ({ attributes, id, device }) => {
 			display: grid;
 			grid-template-columns: repeat(${columnItems[device]}, 1fr);
 			gap: ${columnGap[device]}px;
+			${getBackgroundCSS(container?.bg)};
+		    ${getBorderCSS(container?.border)};
+			padding:${getBoxCSS(container?.padding?.desktop)};
+	    	margin:${getBoxCSS(container?.margin?.desktop)};
+			border-radius:${getBoxCSS(container?.radius)};
+
 		}
 		${cardSl} {
 
