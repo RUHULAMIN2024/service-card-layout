@@ -125,8 +125,6 @@ $transition-smooth: all 0.4s ease;
 
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(320px, 1fr));
-    gap: 20px;
   }
 
   // Common inner classes used across all themes

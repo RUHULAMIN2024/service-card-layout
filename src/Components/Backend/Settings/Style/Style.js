@@ -115,7 +115,7 @@ const Style = ({ attributes, setAttributes, device }) => {
 
         <BorderControl
           className="mt10"
-          label={__("Border", "audio-theme")}
+          label={__("Border", "service-card-layout")}
           value={container?.border}
           onChange={(v) =>
             setAttributes({
