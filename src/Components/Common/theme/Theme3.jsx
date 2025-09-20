@@ -1,10 +1,10 @@
 
-function Theme3({ services }) {
+function Theme3({ services, setAttributes }) {
   return (
     <div className="theme3">
       <div className="cards-grid">
         {services?.map((service, i) => (
-          <div key={i} className="card">
+          <div key={i} onClick={() => setAttributes({ activeServiceIdx: i })} className="card">
             <div className="diagonal-bg"></div>
 
             <div className="icon-wrapper">

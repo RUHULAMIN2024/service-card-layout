@@ -40,13 +40,12 @@ const Style = ({ attributes, setAttributes, device }) => {
             })
           }
           min={1}
-          max={8}
+          max={12}
         />
         <PanelRow>
           <Label className="">Gap</Label> <Device />
         </PanelRow>
         <RangeControl
-          label={__("Gap", "service-card-layout")}
           value={columnGap}
           onChange={(v) =>
             setAttributes({
@@ -102,6 +101,8 @@ const Style = ({ attributes, setAttributes, device }) => {
             });
           }}
         />
+
+
 
         <BorderControl
           className="mt10"

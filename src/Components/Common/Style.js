@@ -17,6 +17,7 @@ const Style = ({ attributes, id, device }) => {
 
    let iconSize = "";
   if (theme === "theme2") {
+	
     iconSize = `
       ${iconSl} svg {
 	  	width:${icon?.size}px;
@@ -29,7 +30,7 @@ const Style = ({ attributes, id, device }) => {
       ${iconSl} {
 	  	width:${icon?.size}px;
 		height:${icon?.size}px;
-		${getBackgroundCSS(icon?.bg)};
+		${getBackgroundCSS(icon?.bg)};	
 
       }
       
@@ -69,11 +70,21 @@ const Style = ({ attributes, id, device }) => {
 
 		
 
-		${iconSize}
+		${iconSize};
+		
 		${iconSl} svg{
 		    fill:${icon?.color};
 			
 		}
+
+		${iconSl} {
+	  	
+		${getBackgroundCSS(icon?.bg)};	
+      }
+		${iconSl}::after {
+		${getBackgroundCSS(icon?.bg)};	
+
+      }
 		${titleSl}{
 			${getColorsCSS(title?.colors)};
 			padding:${getBoxCSS(title?.padding?.[device])};

@@ -1,10 +1,10 @@
 
-function Theme2({ services }) {
+function Theme2({ services, setAttributes }) {
   return (
     <div className="theme2">
       <div className="cards-grid">
         {services?.map((service, i) => (
-          <div key={i} className="card">
+          <div key={i} onClick={() => setAttributes({ activeServiceIdx: i })} className="card">
             <div className="icon-wrapper">
             <div className="only-theme2"></div>
               <span dangerouslySetInnerHTML={{__html:service?.icon}} className="icon" />

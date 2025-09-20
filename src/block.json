@@ -13,6 +13,10 @@
       "type": "string",
       "default": "wide"
     },
+    "activeServiceIdx":{
+      "type":"number",
+      "default":0
+    },
     "theme": {
       "type": "string",
       "default": "theme1"
@@ -43,15 +47,15 @@
       "default": {
         "grid": {
           "columnItems": {
-            "desktop": 3,
-            "tablet": 2,
-            "mobile": 1
+            "desktop": "3",
+            "tablet": "2",
+            "mobile": "1"
           },
 
           "columnGap": {
-            "desktop": "",
-            "tablet": "",
-            "mobile": ""
+            "desktop": "20",
+            "tablet": "20",
+            "mobile": "0"
           }
         },
         "card": {
@@ -76,10 +80,11 @@
               "left": "32px"
             }
           },
+      
           "border": {
-            "width": "",
+            "width": "0px",
             "style": "solid",
-            "color": ""
+            "color": "#ddd"
           },
           "radius": {
             "top": "16px",
@@ -115,22 +120,22 @@
             },
             "padding": {
               "desktop": {
-                "top": "",
-                "right": "",
-                "bottom": "",
-                "left": ""
+                "top": "0px",
+                "right": "0px",
+                "bottom": "0px",
+                "left": "0px"
               },
               "tablet": {
-                "top": "",
-                "right": "",
-                "bottom": "",
-                "left": ""
+                "top": "0px",
+                "right": "0px",
+                "bottom": "0px",
+                "left": "0px"
               },
               "mobile": {
-                "top": "",
-                "right": "",
-                "bottom": "",
-                "left": ""
+                "top": "0px",
+                "right": "0px",
+                "bottom": "0px",
+                "left": "0px"
               }
             }
           },
@@ -154,22 +159,22 @@
             },
             "padding": {
               "desktop": {
-                "top": "",
-                "right": "",
-                "bottom": "",
-                "left": ""
+                "top": "0px",
+                "right": "0px",
+                "bottom": "0px",
+                "left": "0px"
               },
               "tablet": {
-                "top": "",
-                "right": "",
-                "bottom": "",
-                "left": ""
+                "top": "0px",
+                "right": "0px",
+                "bottom": "0px",
+                "left": "0px"
               },
               "mobile": {
-                "top": "",
-                "right": "",
-                "bottom": "",
-                "left": ""
+                "top": "0px",
+                "right": "0px",
+                "bottom": "0px",
+                "left": "0px"
               }
             }
           }

@@ -21,7 +21,7 @@ const Edit = (props) => {
           <ClipBoard shortcode={`[service_card_layout id=${postId}]`} />
         )}
           <div className="card-section">
-            <Theme attributes={attributes} />
+            <Theme setAttributes={setAttributes} attributes={attributes} />
           </div>
         </div>
       </div>

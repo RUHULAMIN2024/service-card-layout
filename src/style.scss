@@ -64,19 +64,6 @@ $transition-smooth: all 0.4s ease;
   line-height: 1.6;
 }
 
-// Reset and base styles
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: $font-family-base;
-  line-height: 1.6;
-  color: #333;
-  background: $background-gradient;
-}
 
 .wp-block-rascl-service-card-layout {
   box-sizing: border-box;
@@ -144,7 +131,7 @@ body {
 
   // Common inner classes used across all themes
   .icon-wrapper {
-    padding: 22px;
+    padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -215,7 +202,7 @@ body {
     .card {
       @include card-base;
       border-radius: $border-radius-large;
-      padding: 0 !important;
+      padding: 0;
       box-shadow: $shadow-heavy;
       transition: $transition-smooth;
       display: flex;

@@ -1,5 +1,5 @@
 
-function Theme1({ services }) {
+function Theme1({ services,setAttributes }) {
   
   return (
     <div className="theme1">
@@ -8,7 +8,7 @@ function Theme1({ services }) {
 
         {services?.map((service, i) => (
           
-          <div key={i} className="card">
+          <div key={i} onClick={() => setAttributes({ activeServiceIdx: i })} className="card">
            
             <div className="icon-wrapper">
               <span dangerouslySetInnerHTML={{__html:service?.icon}} className="icon" />
