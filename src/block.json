@@ -149,21 +149,23 @@
             "left": "0px"
           },
           "bg": {
-            "color":""
+            "color": ""
           }
         },
         "content": {
           "icon": {
-            
+            "display": true,
             "color": "",
             "size": {
-              "desktop": "",
-              "tablet": "",
-              "mobile": ""
+              "desktop": 80,
+              "tablet": 80,
+              "mobile": 80
             },
             "bg": {}
           },
           "title": {
+            "display": true,
+
             "typo": {
               "fontSize": {
                 "desktop": "",
@@ -201,6 +203,8 @@
             }
           },
           "description": {
+            "display": true,
+
             "typo": {
               "fontSize": {
                 "desktop": "",

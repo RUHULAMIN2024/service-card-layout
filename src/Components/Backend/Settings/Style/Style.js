@@ -4,6 +4,7 @@ import {
   PanelRow,
   __experimentalBorderControl as BorderControl,
   RangeControl,
+  ToggleControl,
 } from "@wordpress/components";
 import {
   Background,
@@ -19,7 +20,7 @@ import { updateData } from "../../../../../../bpl-tools/utils/functions";
 
 const Style = ({ attributes, setAttributes, device }) => {
   const { styles } = attributes;
-  const { grid, card, content, container} = styles;
+  const { grid, card, content, container } = styles;
   const { columnItems, columnGap } = grid;
   const { icon, title, description } = content;
   return (
@@ -143,8 +144,6 @@ const Style = ({ attributes, setAttributes, device }) => {
         />
       </PanelBody>
 
-
-
       <PanelBody
         className="bPlPanelBody"
         title={__("Card", "service-card-layout")}
@@ -225,7 +224,18 @@ const Style = ({ attributes, setAttributes, device }) => {
         title={__("Icon", "service-card-layout")}
         initialOpen={false}
       >
-      
+        <PanelRow>
+          <Label className="">Show/Hide</Label>
+          <ToggleControl
+            checked={icon?.display}
+            onChange={(v) =>
+              setAttributes({
+                styles: updateData(styles, v, "content", "icon", "display"),
+              })
+            }
+          />
+        </PanelRow>
+
         <ColorControl
           className="mt10"
           label={__("Color", "service-card-layout")}
@@ -269,7 +279,18 @@ const Style = ({ attributes, setAttributes, device }) => {
         title={__("Title", "service-card-layout")}
         initialOpen={false}
       >
-        {/* title  */}
+        <PanelRow>
+          <Label className="">Show/Hide</Label>
+          <ToggleControl
+            checked={title?.display}
+            onChange={(v) =>
+              setAttributes({
+                styles: updateData(styles, v, "content", "title", "display"),
+              })
+            }
+          />
+        </PanelRow>
+
         <Typography
           className="mt10"
           value={title?.typo}
@@ -322,6 +343,24 @@ const Style = ({ attributes, setAttributes, device }) => {
         title={__("Description", "service-card-layout")}
         initialOpen={false}
       >
+        <PanelRow>
+          <Label className="">Show/Hide</Label>
+          <ToggleControl
+            checked={description?.display}
+            onChange={(v) =>
+              setAttributes({
+                styles: updateData(
+                  styles,
+                  v,
+                  "content",
+                  "description",
+                  "display"
+                ),
+              })
+            }
+          />
+        </PanelRow>
+
         <Typography
           className="mt10"
           value={description?.typo}

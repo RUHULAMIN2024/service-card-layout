@@ -1,5 +1,8 @@
 
-function Theme3({ services, setAttributes }) {
+function Theme3({ attributes, setAttributes }) {
+
+  const {services, styles}=attributes;
+  const {icon, title, description}=styles?.content
   return (
     <div className="theme3">
       <div className="cards-grid">
@@ -7,14 +10,20 @@ function Theme3({ services, setAttributes }) {
           <div key={i} onClick={() => setAttributes({ activeServiceIdx: i })} className="card">
             <div className="diagonal-bg"></div>
 
-            <div className="icon-wrapper">
+            {
+              icon?.display && <div className="icon-wrapper">
               <span dangerouslySetInnerHTML={{__html:service?.icon}} className="icon" />
             </div>
+            }
             <div className="content-section">
               <div className="accent-line"></div>
 
-              <h3 className="card-title">{service?.title}</h3>
-              <p className="card-description">{service?.description}</p>
+              {
+                title?.display && <h3 className="card-title">{service?.title}</h3>
+              }
+              {
+                description?.display && <p className="card-description">{service?.description}</p>
+              }
             </div>
           </div>
         ))}

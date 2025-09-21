@@ -6,12 +6,12 @@ import { IconLibrary, Label } from "../../../../../../bpl-tools/Components";
 const ServicesItemsPanel = ({ attributes, setAttributes, index }) => {
   const { services } = attributes;
   const {icon, title, description } = services[index];
- console.log(icon)
 
   return (
     <>
       <IconLibrary
         className="mt10"
+        value={icon}
         label="Service Icon"
         onChange={(v) =>
           setAttributes({

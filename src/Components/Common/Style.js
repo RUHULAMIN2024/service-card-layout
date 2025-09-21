@@ -1,10 +1,16 @@
-import { 
-  getBackgroundCSS, 
-  getBorderCSS, 
-  getBoxCSS, 
-  getColorsCSS, 
-  getMultiShadowCSS, 
-  getTypoCSS 
+import {
+  deskBreakpoint,
+  tabBreakpoint,
+  mobileBreakpoint,
+} from "../../../../bpl-tools/utils/data";
+
+import {
+  getBackgroundCSS,
+  getBorderCSS,
+  getBoxCSS,
+  getColorsCSS,
+  getMultiShadowCSS,
+  getTypoCSS,
 } from "../../../../bpl-tools/utils/getCSS";
 
 const Style = ({ attributes, id }) => {
@@ -22,48 +28,57 @@ const Style = ({ attributes, id }) => {
 
   // ===== ICON SIZE (Responsive) =====
   const iconSize = `
-    /* Desktop */
-    ${theme === "theme2" ? `
+    ${
+      theme === "theme2"
+        ? `
       ${iconSl} svg {
         width:${icon?.size?.desktop}px;
         height:${icon?.size?.desktop}px;
       }
-    ` : `
+    `
+        : `
       ${iconSl} {
         width:${icon?.size?.desktop}px;
         height:${icon?.size?.desktop}px;
         ${getBackgroundCSS(icon?.bg)};
       }
-    `}
-
-    /* Tablet */
-    @media (max-width:1023px) {
-      ${theme === "theme2" ? `
-        ${iconSl} svg {
-          width:${icon?.size?.tablet}px;
-          height:${icon?.size?.tablet}px;
-        }
-      ` : `
-        ${iconSl} {
-          width:${icon?.size?.tablet}px;
-          height:${icon?.size?.tablet}px;
-        }
-      `}
+    `
     }
 
-    /* Mobile */
-    @media (max-width:767px) {
-      ${theme === "theme2" ? `
+    ${tabBreakpoint} {
+      ${
+        theme === "theme2"
+          ? `
+        ${iconSl} svg {
+          width:${icon?.size?.tablet}px;
+          height:${icon?.size?.tablet}px;
+        }
+      `
+          : `
+        ${iconSl} {
+          width:${icon?.size?.tablet}px;
+          height:${icon?.size?.tablet}px;
+        }
+      `
+      }
+    }
+
+    ${mobileBreakpoint} {
+      ${
+        theme === "theme2"
+          ? `
         ${iconSl} svg {
           width:${icon?.size?.mobile}px;
           height:${icon?.size?.mobile}px;
         }
-      ` : `
+      `
+          : `
         ${iconSl} {
           width:${icon?.size?.mobile}px;
           height:${icon?.size?.mobile}px;
         }
-      `}
+      `
+      }
     }
   `;
 
@@ -94,8 +109,7 @@ const Style = ({ attributes, id }) => {
           gap: ${columnGap?.desktop || 20}px;
         }
 
-        /* Tablet */
-        @media (max-width:1023px) {
+        ${tabBreakpoint} {
           ${blockSl} {
             padding:${getBoxCSS(container?.padding?.tablet)};
             margin:${getBoxCSS(container?.margin?.tablet)};
@@ -115,8 +129,7 @@ const Style = ({ attributes, id }) => {
           }
         }
 
-        /* Mobile */
-        @media (max-width:767px) {
+        ${mobileBreakpoint} {
           ${blockSl} {
             padding:${getBoxCSS(container?.padding?.mobile)};
             margin:${getBoxCSS(container?.margin?.mobile)};
@@ -166,6 +179,24 @@ const Style = ({ attributes, id }) => {
         ${descriptionSl} {
           ${getColorsCSS(description?.colors)};
           padding:${getBoxCSS(description?.padding?.desktop)};
+        }
+
+        ${tabBreakpoint} {
+          ${titleSl} {
+            padding:${getBoxCSS(title?.padding?.tablet)};
+          }
+          ${descriptionSl} {
+            padding:${getBoxCSS(description?.padding?.tablet)};
+          }
+        }
+
+        ${mobileBreakpoint} {
+          ${titleSl} {
+            padding:${getBoxCSS(title?.padding?.mobile)};
+          }
+          ${descriptionSl} {
+            padding:${getBoxCSS(description?.padding?.mobile)};
+          }
         }
 
       `,

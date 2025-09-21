@@ -1,17 +1,25 @@
 
-function Theme2({ services, setAttributes }) {
+function Theme2({ attributes, setAttributes }) {
+
+  const {services, styles}=attributes;
+  const {icon, title, description}=styles?.content
   return (
     <div className="theme2">
       <div className="cards-grid">
         {services?.map((service, i) => (
           <div key={i} onClick={() => setAttributes({ activeServiceIdx: i })} className="card">
-            <div className="icon-wrapper">
-            <div className="only-theme2"></div>
+            {
+              icon?.display && <div className="icon-wrapper">
               <span dangerouslySetInnerHTML={{__html:service?.icon}} className="icon" />
             </div>
+            }
             <div className="content-section">
-              <h3 className="card-title">{service?.title}</h3>
-              <p className="card-description">{service?.description}</p>
+              {
+                title?.display && <h3 className="card-title">{service?.title}</h3>
+              }
+              {
+                description?.display && <p className="card-description">{service?.description}</p>
+              }
             </div>
           </div>
         ))}
