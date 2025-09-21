@@ -109,6 +109,16 @@ const Style = ({ attributes, id }) => {
           gap: ${columnGap?.desktop || 20}px;
         }
 
+         /* Card base style */
+        ${cardSl} {
+          ${getBackgroundCSS(card?.bg)};
+          ${getBorderCSS(card?.border)};
+          box-shadow: ${getMultiShadowCSS(card?.shadow)};
+          padding:${getBoxCSS(card?.padding?.desktop)};
+          border-radius:${getBoxCSS(card?.radius)};
+        }
+
+
         ${tabBreakpoint} {
           ${blockSl} {
             padding:${getBoxCSS(container?.padding?.tablet)};
@@ -149,14 +159,7 @@ const Style = ({ attributes, id }) => {
           }
         }
 
-        /* Card base style */
-        ${cardSl} {
-          ${getBackgroundCSS(card?.bg)};
-          ${getBorderCSS(card?.border)};
-          box-shadow: ${getMultiShadowCSS(card?.shadow)};
-          padding:${getBoxCSS(card?.padding?.desktop)};
-          border-radius:${getBoxCSS(card?.radius)};
-        }
+       
 
         ${iconSize}
 
