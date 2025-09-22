@@ -15,7 +15,6 @@ if (!class_exists('rasclAdminMenu')) {
 
         public function adminEnqueueScripts($hook)
         {
-            echo $hook;
                 if ('service_card_layout_page_service-card-layout' === $hook) {
 
                 wp_enqueue_style('rascl-admin-style', RASCL_DIR_URL . 'build/dashboard.css', false, RASCL_VERSION);

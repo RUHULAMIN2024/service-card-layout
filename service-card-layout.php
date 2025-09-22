@@ -95,7 +95,7 @@ if (!class_exists('RASCLPlugin')) {
 
 				// Redirect to service card layout post type
 				wp_safe_redirect(
-					admin_url('edit.php?post_type=service_card_layout&page=about-service-card')
+					admin_url('edit.php?post_type=service_card_layout&page=service-card-layout')
 				);
 				exit;
 			}
