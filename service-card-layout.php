@@ -27,7 +27,6 @@ if (!class_exists('RASCLPlugin')) {
 		function __construct()
 		{
 			add_action('init', [$this, 'onInit']);
-			add_action('admin_menu', [$this, 'register_custom_menu']);
 
 			add_filter('manage_service_card_layout_posts_columns', [$this, 'manageColumns']);
 			add_action('manage_service_card_layout_posts_custom_column', [$this, 'manageCustomColumns'], 10, 2);
@@ -70,48 +69,6 @@ if (!class_exists('RASCLPlugin')) {
 			]);
 		}
 
-
-		function register_custom_menu()
-		{
-
-			add_submenu_page(
-				'edit.php?post_type=service_card_layout',                 // Parent slug
-				'About Service Card',             // Page title
-				'About Service Card',             // Menu title
-				'manage_options',              // Capability
-				'about-service-card',             // Menu slug
-				array($this, 'about_page') // Callback function
-			);
-		}
-
-
-
-
-		function about_page()
-		{
-			echo '<div class="wrap">';
-			echo '<h2>About Service Card Layout</h2>
-			<p>Service Card Layout is a custom Gutenberg block plugin that allows you to showcase your services, features, or products in a modern and responsive card-based grid design. With easy customization options, you can create visually appealing sections that perfectly fit your website style.</p>
-			<h2>👉 With this plugin, you can:</h2>
-			<ul>
-				<li>Add icon, title, and description for each service.</li>
-				<li>Control responsive layouts (Desktop, Tablet, Mobile) with adjustable column settings.</li>
-				<li>Customize each card with padding, border, radius, background, and shadow options.</li>
-				<li>Use Wide and Full Width alignment for seamless integration into your page layout.</li>
-				<li>Enjoy a lightweight and performance-friendly block that works with any WordPress theme.</li>
-			</ul>
-
-			<h2>🔹 Best Use Cases:</h2>
-			<ul>
-				<li>Service sections</li>
-				<li>Feature highlights</li>
-				<li>Product listings</li>
-				<li>Team member showcases</li>
-				<li>Any type of structured content you want to present in a stylish way.</li>
-			</ul>';
-
-			echo '</div>';
-		}
 
 
 
@@ -217,3 +174,5 @@ if (!class_exists('RASCLPlugin')) {
 	}
 	new RASCLPlugin();
 }
+
+require_once( RASCL_DIR_PATH .'includes/admin/Menu.php');
