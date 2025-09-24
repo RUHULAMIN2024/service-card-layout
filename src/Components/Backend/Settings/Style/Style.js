@@ -17,12 +17,23 @@ import {
   Typography,
 } from "../../../../../../bpl-tools/Components";
 import { updateData } from "../../../../../../bpl-tools/utils/functions";
+import { BControlPro } from "../../../../../../bpl-tools/ProControls";
 
-const Style = ({ attributes, setAttributes, device }) => {
+const Style = ({
+  attributes,
+  setAttributes,
+  device,
+  isLoading,
+
+  isPremium,
+  setIsProModalOpen,
+}) => {
   const { styles } = attributes;
   const { grid, card, content, container } = styles;
   const { columnItems, columnGap } = grid;
   const { icon, title, description } = content;
+  const premiumProps = { isPremium, setIsProModalOpen };
+
   return (
     <>
       <PanelBody
@@ -345,7 +356,8 @@ const Style = ({ attributes, setAttributes, device }) => {
       >
         <PanelRow>
           <Label className="">Show/Hide</Label>
-          <ToggleControl
+
+          <BControlPro
             checked={description?.display}
             onChange={(v) =>
               setAttributes({
@@ -358,6 +370,8 @@ const Style = ({ attributes, setAttributes, device }) => {
                 ),
               })
             }
+            Component={ToggleControl}
+            {...premiumProps}
           />
         </PanelRow>
 
@@ -406,17 +420,6 @@ const Style = ({ attributes, setAttributes, device }) => {
             });
           }}
         />
-        {/* <ColorControl
-          className="mt10"
-          label={__("Description Color", "service-card-layout")}
-          value={description?.color}
-          onChange={(v) =>
-            setAttributes({
-              styles: updateData(styles, v, "content", "description", "color"),
-            })
-          }
-          defaults={description?.color}
-        /> */}
       </PanelBody>
     </>
   );

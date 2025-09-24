@@ -1,24 +1,24 @@
-const defaultConfig = require('@wordpress/scripts/config/webpack.config');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const defaultConfig = require("@wordpress/scripts/config/webpack.config");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
-const plugins = defaultConfig.plugins.filter(p => {
-	if (Object.values(p).length === 2 && Object.values(p)?.[1]['filename'] && Object.values(p)?.[1]['filename'] === '[name]-rtl.css') {
-		return false;
-	}
-	return true;
+const plugins = defaultConfig.plugins.filter((p) => {
+  if (
+    Object.values(p).length === 2 &&
+    Object.values(p)?.[1]["filename"] &&
+    Object.values(p)?.[1]["filename"] === "[name]-rtl.css"
+  ) {
+    return false;
+  }
+  return true;
 });
 
 module.exports = {
-	...defaultConfig,
-	entry: {
-		...defaultConfig.entry(),
-		shortcode: "./src/shortcode/shortcode.js",
-		dashboard: './src/admin/dashboard.js',
-
-	},
-	plugins: [
-		...plugins,
-		new ESLintPlugin()
-	],
-	optimization: {}
+  ...defaultConfig,
+  entry: {
+    ...defaultConfig.entry(),
+    shortcode: "./src/admin/post.js",
+    dashboard: "./src/admin/dashboard.js",
+  },
+  plugins: [...plugins, new ESLintPlugin()],
+  optimization: {},
 };

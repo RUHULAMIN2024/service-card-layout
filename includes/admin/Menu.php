@@ -1,7 +1,5 @@
 <?php
-if (!defined('ABSPATH')) {
-    exit;
-}
+
 if (!class_exists('rasclAdminMenu')) {
 
     class rasclAdminMenu
@@ -15,7 +13,7 @@ if (!class_exists('rasclAdminMenu')) {
 
         public function adminEnqueueScripts($hook)
         {
-                if ('service_card_layout_page_service-card-layout' === $hook) {
+            if ('service_card_layout_page_service-card-layout' === $hook) {
 
                 wp_enqueue_style('rascl-admin-style', RASCL_DIR_URL . 'build/dashboard.css', false, RASCL_VERSION);
                 wp_enqueue_script('rascl-admin-script', RASCL_DIR_URL . 'build/dashboard.js', ['react', 'react-dom', 'wp-data', "wp-api", "wp-util", "wp-i18n"], RASCL_VERSION, true);
@@ -31,7 +29,8 @@ if (!class_exists('rasclAdminMenu')) {
                 __('Dashboard', 'service-card-layout'),
                 'manage_options',
                 'service-card-layout',
-                [$this, 'renderDashboardPage']
+                [$this, 'renderDashboardPage'],
+                0
             );
         }
 
@@ -40,15 +39,15 @@ if (!class_exists('rasclAdminMenu')) {
 
         public function renderDashboardPage()
         {
-        ?>
+?>
             <div
                 id='rasclDashboard'
                 data-info='<?php echo esc_attr(wp_json_encode([
                                 'version' => RASCL_VERSION,
-                                // 'isPremium' => apbIsPremium(),
-                                // 'hasPro' => APB_HAS_PRO
+                                'isPremium' => rasclIsPremium(),
+                                'hasPro' => RASCL_HAS_PRO
                             ])); ?>'></div>
-        <?php
+<?php
         }
     }
     new rasclAdminMenu();

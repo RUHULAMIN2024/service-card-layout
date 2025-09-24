@@ -4,22 +4,41 @@ import Settings from "./Settings/Settings";
 import Style from "../Common/Style";
 import Theme from "../Common/theme/theme";
 import ClipBoard from "../../utils/ClipBoard";
+import { usePremiumInEditor } from "../../../../bpl-tools/hooks";
+
 const Edit = (props) => {
   const { attributes, setAttributes, clientId, device, postType, postId } =
     props;
 
+  const { isPremium, isLoading } = usePremiumInEditor(
+    "rasclUtils",
+    "rasclPremiumChecker"
+  );
+
   return (
     <>
-      <Settings {...{ attributes, setAttributes, device, clientId }} />
+      <Settings
+        {...{
+          attributes,
+          setAttributes,
+          device,
+          clientId,
+          isPremium,
+          isLoading,
+        }}
+      />
 
       <div {...useBlockProps()}>
-        <Style device={device} attributes={attributes} id={`block-${clientId}`} />
-
+        <Style
+          device={device}
+          attributes={attributes}
+          id={`block-${clientId}`}
+        />
 
         <div className="app-container">
           {postType == "service_card_layout" && (
-          <ClipBoard shortcode={`[service_card_layout id=${postId}]`} />
-        )}
+            <ClipBoard shortcode={`[service_card_layout id=${postId}]`} />
+          )}
           <div className="card-section">
             <Theme setAttributes={setAttributes} attributes={attributes} />
           </div>
