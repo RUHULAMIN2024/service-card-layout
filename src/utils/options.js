@@ -9,10 +9,6 @@ export const themeOptions = [
   { value: "theme2", label: __("Theme-2", "service-card-layout") },
   { value: "theme3", label: __("Theme-3", "service-card-layout") },
 ];
-export const themeOptionsPro = [
-  { value: "theme2", label: __("Theme-2", "service-card-layout") },
-  { value: "theme3", label: __("Theme-3", "service-card-layout") },
-];
 
 export const blocks = [
   {
