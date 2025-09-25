@@ -1,12 +1,22 @@
 import { __ } from "@wordpress/i18n";
 import { PanelBody, SelectControl } from "@wordpress/components";
-import { themeOptions } from "../../../../utils/options";
+import { themeOptions, themeOptionsPro } from "../../../../utils/options";
 import { themeSwitch } from "../../../../utils/functions";
 import { ItemsPanel } from "../../../../../../bpl-tools/Components";
 import ServicesItemsPanel from "./ServicesItemsPanel";
+import { SelectControlPro } from "../../../../../../bpl-tools/ProControls";
 
-const General = ({ attributes, setAttributes }) => {
+const General = ({
+  attributes,
+  setAttributes,
+  device,
+  isLoading,
+
+  isPremium,
+  setIsProModalOpen,
+}) => {
   const { theme, activeServiceIdx } = attributes;
+  const premiumProps = { isPremium, setIsProModalOpen };
 
   return (
     <>
@@ -20,6 +30,18 @@ const General = ({ attributes, setAttributes }) => {
             "Some settings will be change when you will change the player.",
             "audio-player-showcase"
           )}
+        />
+        <SelectControlPro
+          label={"Themes"}
+          value={theme}
+          options={themeOptions}
+          onChange={(val) => setAttributes(themeSwitch(val, attributes))}
+          help={__(
+            "Some settings will be change when you will change the player.",
+            "audio-player-showcase"
+          )}
+          proValues={themeOptionsPro}
+          {...premiumProps}
         />
       </PanelBody>
 

@@ -5,6 +5,7 @@ import Style from "../Common/Style";
 import Theme from "../Common/theme/theme";
 import ClipBoard from "../../utils/ClipBoard";
 import { usePremiumInEditor } from "../../../../bpl-tools/hooks";
+import { FrontShortCode } from "../../../../bpl-tools/ProControls";
 
 const Edit = (props) => {
   const { attributes, setAttributes, clientId, device, postType, postId } =
@@ -36,8 +37,8 @@ const Edit = (props) => {
         />
 
         <div className="app-container">
-          {postType == "service_card_layout" && (
-            <ClipBoard shortcode={`[service_card_layout id=${postId}]`} />
+          {postType == "rascl" && (
+            <ClipBoard shortcode={`[rascl id=${postId}]`} />
           )}
           <div className="card-section">
             <Theme setAttributes={setAttributes} attributes={attributes} />
