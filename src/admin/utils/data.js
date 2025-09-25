@@ -12,7 +12,7 @@ export const dashboardInfo = (info) => {
       "Service Card Layout is a powerful and flexible block plugin that allows you to display posts, display blog posts, and embed custom posts in a fully customizable and responsive layout.",
     slug,
     logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`,
-    banner: `https://i.ibb.co.com/Z6CRft6x/Screenshot-2025-09-24-101104.png`,
+    banner: `https://i.ibb.co.com/H0cyzC8/service-card.png`,
     // video: 'https://www.youtube.com/watch?v=milYZrqLJsE',
     // isYoutube: true,
     version,

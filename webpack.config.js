@@ -16,8 +16,8 @@ module.exports = {
   ...defaultConfig,
   entry: {
     ...defaultConfig.entry(),
-    shortcode: "./src/admin/post.js",
-    dashboard: "./src/admin/dashboard.js",
+    "admin-post": "./src/admin/post.js",
+    "admin-dashboard": "./src/admin/dashboard.js",
   },
   plugins: [...plugins, new ESLintPlugin()],
   optimization: {},

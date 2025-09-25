@@ -237,13 +237,24 @@ const Style = ({
       >
         <PanelRow>
           <Label className="">Show/Hide</Label>
-          <ToggleControl
+          {/* <ToggleControl
             checked={icon?.display}
             onChange={(v) =>
               setAttributes({
                 styles: updateData(styles, v, "content", "icon", "display"),
               })
             }
+          /> */}
+
+          <BControlPro
+            checked={icon?.display}
+            onChange={(v) =>
+              setAttributes({
+                styles: updateData(styles, v, "content", "icon", "display"),
+              })
+            }
+            Component={ToggleControl}
+            {...premiumProps}
           />
         </PanelRow>
 
@@ -259,7 +270,7 @@ const Style = ({
           defaults={icon?.color}
         />
 
-        <Background
+        {/* <Background
           isImage={false}
           className="mt10"
           value={icon?.bg}
@@ -268,11 +279,27 @@ const Style = ({
               styles: updateData(styles, v, "content", "icon", "bg"),
             })
           }
+        /> */}
+
+        <BControlPro
+          isImage={false}
+          className="mt10"
+          label={__("Background", "service-card-layout")}
+          value={icon?.bg}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "icon", "bg"),
+            })
+          }
+          Component={Background}
+          {...premiumProps}
         />
+
         <PanelRow>
-          <Label className="">Size</Label> <Device />
+          <div className=""></div>
+          <Device />
         </PanelRow>
-        <RangeControl
+        {/* <RangeControl
           min={50}
           max={150}
           className="mt10"
@@ -282,6 +309,20 @@ const Style = ({
               styles: updateData(styles, v, "content", "icon", "size", device),
             })
           }
+        /> */}
+        <BControlPro
+          min={50}
+          max={150}
+          className="mt-70"
+          label="Size"
+          value={icon?.size[device]}
+          onChange={(v) =>
+            setAttributes({
+              styles: updateData(styles, v, "content", "icon", "size", device),
+            })
+          }
+          Component={RangeControl}
+          {...premiumProps}
         />
       </PanelBody>
 
@@ -292,13 +333,23 @@ const Style = ({
       >
         <PanelRow>
           <Label className="">Show/Hide</Label>
-          <ToggleControl
+          {/* <ToggleControl
             checked={title?.display}
             onChange={(v) =>
               setAttributes({
                 styles: updateData(styles, v, "content", "title", "display"),
               })
             }
+          /> */}
+          <BControlPro
+            checked={title?.display}
+            onChange={(v) =>
+              setAttributes({
+                styles: updateData(styles, v, "content", "title", "display"),
+              })
+            }
+            Component={ToggleControl}
+            {...premiumProps}
           />
         </PanelRow>
 
