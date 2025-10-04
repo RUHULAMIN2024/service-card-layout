@@ -1,12 +1,12 @@
-import { createRoot } from 'react-dom/client';
+import { createRoot } from "react-dom/client";
 
-import './dashboard.scss';
-import App from './Components/App';
-import { dashboardInfo } from './utils/data';
+import "./dashboard.scss";
+import App from "./Components/App";
+import { dashboardInfo } from "./utils/data";
 
-document.addEventListener('DOMContentLoaded', () => {
-	const dashboardEl = document.getElementById('rasclDashboard');
-	const info = JSON.parse(dashboardEl.dataset.info);
+document.addEventListener("DOMContentLoaded", () => {
+  const dashboardEl = document.getElementById("rasclHelpAndDemo");
+  const info = JSON.parse(dashboardEl.dataset.info);
 
-	createRoot(dashboardEl).render(<App {...dashboardInfo(info)} />);
+  createRoot(dashboardEl).render(<App {...dashboardInfo(info)} />);
 });

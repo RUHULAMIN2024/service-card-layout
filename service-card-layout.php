@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Service Card Layout 
  * Description: Short description of the plugin
- * Version: 1.0.1
+ * Version: 1.0.0
  * Author: bPlugins
  * Author URI: https://bplugins.com
  * License: GPLv3
@@ -33,7 +33,7 @@ if (function_exists('scl_fs')) {
 
 
 	// Constant
-	define('RASCL_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.0.1');
+	define('RASCL_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.0.0');
 	define('RASCL_DIR_URL', plugin_dir_url(__FILE__));
 	define('RASCL_DIR_PATH', plugin_dir_path(__FILE__));
 	define('RASCL_HAS_PRO', file_exists(dirname(__FILE__) . '/freemius/start.php'));
@@ -63,17 +63,20 @@ if (function_exists('scl_fs')) {
 					'public_key'          => 'pk_4fbd049b3187ec723341e81b89a80',
 					'is_premium'          => true,
 					'premium_suffix'      => 'SCL Pro',
+					// If your plugin is a serviceware, set this option to false.
 					'has_premium_version' => true,
 					'has_addons'          => false,
 					'has_paid_plans'      => true,
+					// Automatically removed in the free version. If you're not using the
+					// auto-generated free version, delete this line before uploading to wp.org.
 					'wp_org_gatekeeper'   => 'OA7#BoRiBNqdf52FvzEf!!074aRLPs8fspif$7K1#4u4Csys1fQlCecVcUTOs2mcpeVHi#C2j9d09fOTvbC0HloPT7fFee5WdS3G',
 					'trial'               => array(
 						'days'               => 7,
 						'is_require_payment' => false,
 					),
 					'menu'                => array(
-						'slug'           => 'edit.php?post_type=service_card_layout',
-						'first-path'     => 'edit.php?post_type=service_card_layout&page=service-card-layout',
+						'slug'           => 'edit.php?post_type=rascl',
+						'first-path'     => 'edit.php?post_type=rascl',
 						'support'        => false,
 					),
 				);
@@ -96,9 +99,9 @@ if (function_exists('scl_fs')) {
 		return RASCL_HAS_PRO ? scl_fs()->can_use_premium_code() : false;
 	}
 
-	require_once(RASCL_DIR_PATH . 'includes/admin/Menu.php');
 
 	require_once RASCL_DIR_PATH . 'includes/admin/CPT.php';
+	require_once(RASCL_DIR_PATH . 'includes/admin/Menu.php');
 
 
 	if (!class_exists('RASCLPlugin')) {

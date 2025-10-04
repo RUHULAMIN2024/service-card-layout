@@ -19,7 +19,7 @@ if (!class_exists('rasclAdminMenu')) {
 
         public function adminEnqueueScripts($hook)
         {
-            if ('toplevel_page_service-card-layout' === $hook) {
+            if ('rascl_page_service-card-layout-help' === $hook) {
 
                 wp_enqueue_style('rascl-admin-style', RASCL_DIR_URL . 'build/admin-dashboard.css', false, RASCL_VERSION);
                 wp_enqueue_script('rascl-admin-script', RASCL_DIR_URL . 'build/admin-dashboard.js', ['react', 'react-dom', 'wp-data', "wp-api", "wp-util", "wp-i18n"], RASCL_VERSION, true);
@@ -28,35 +28,27 @@ if (!class_exists('rasclAdminMenu')) {
 
         public function adminMenu()
         {
-            add_menu_page(
-                __('Service Card Layout', 'service-card-layout'),
-                __('Service Card Layout', 'service-card-layout'),
-                'manage_options',
-                'service-card-layout',
-                '',
-                'dashicons-layout',
-                2
-            );
+
 
             add_submenu_page(
-                "service-card-layout",
-                __('Dashboard - Service Card Layout', 'service-card-layout'),
-                __('Dashboard', 'service-card-layout'),
+                "edit.php?post_type=rascl",
+                __('Help & Demo - Service Card Layout', 'service-card-layout'),
+                __('Help & Demo', 'service-card-layout'),
                 'manage_options',
-                'service-card-layout',
-                [$this, 'renderDashboardPage'],
-                0
+                'service-card-layout-help',
+                [$this, 'renderHelpAndDemoPage'],
+
             );
         }
 
 
 
 
-        public function renderDashboardPage()
+        public function renderHelpAndDemoPage()
         {
 ?>
             <div
-                id='rasclDashboard'
+                id='rasclHelpAndDemo'
                 data-info='<?php echo esc_attr(wp_json_encode([
                                 'version' => RASCL_VERSION,
                                 'isPremium' => rasclIsPremium(),
