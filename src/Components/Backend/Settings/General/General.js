@@ -4,14 +4,22 @@ import { themeOptions } from "../../../../utils/options";
 import { themeSwitch } from "../../../../utils/functions";
 import { ItemsPanel } from "../../../../../../bpl-tools/Components";
 import ServicesItemsPanel from "./ServicesItemsPanel";
+import { SelectControlPro } from "../../../../../../bpl-tools/ProControls";
 
-const General = ({ attributes, setAttributes }) => {
+const General = ({
+  attributes,
+  setAttributes,
+  device,
+  isPremium,
+  setIsProModalOpen,
+}) => {
   const { theme, activeServiceIdx } = attributes;
+  const premiumProps = { isPremium, setIsProModalOpen };
 
   return (
     <>
       <PanelBody className="bPlPanelBody">
-        <SelectControl
+        {/* <SelectControl
           label={"Themes"}
           value={theme}
           options={themeOptions}
@@ -20,6 +28,23 @@ const General = ({ attributes, setAttributes }) => {
             "Some settings will be change when you will change the player.",
             "audio-player-showcase"
           )}
+        /> */}
+
+        <SelectControlPro
+          label={__("Select Theme")}
+          labelPosition="left"
+          help={__(
+            "Some settings will be change when you will change the theme.",
+            "mp3player-block"
+          )}
+          value={theme}
+          options={themeOptions}
+          onChange={(val) =>
+            setAttributes(themeSwitch(val, attributes, device))
+          }
+          Component={SelectControl}
+          {...premiumProps}
+          proValues={["theme3"]}
         />
       </PanelBody>
 

@@ -21,14 +21,7 @@ if (!defined('ABSPATH')) {
 
 
 if (function_exists('scl_fs')) {
-	register_activation_hook(__FILE__, function () {
-		if (is_plugin_active('service-card-layout/service-card-layout.php')) {
-			deactivate_plugins('service-card-layout/service-card-layout.php');
-		}
-		if (is_plugin_active('service-card-layout-premium/service-card-layout.php')) {
-			deactivate_plugins('service-card-layout-premium/service-card-layout.php');
-		}
-	});
+	scl_fs()->set_basename(true, __FILE__);
 } else {
 
 
@@ -40,10 +33,7 @@ if (function_exists('scl_fs')) {
 
 
 
-
-
 	if (! function_exists('scl_fs')) {
-		// Create a helper function for easy SDK access.
 		function scl_fs()
 		{
 			global $scl_fs;
